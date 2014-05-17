@@ -6,10 +6,12 @@ require.config({
     text: '../lib/require/text-1.0.6',
     async: '../lib/require/async',
     handlebars: '../lib/handlebars/handlebars',
-    pdf: '../lib/pdf/pdf',
     templates: '../templates'
   },
   shim: {
+    'jquery': {
+      exports: '$'
+    },
     'underscore': {
       exports: '_'
     },
@@ -20,9 +22,6 @@ require.config({
     'handlebars': {
       exports: 'Handlebars'
     },
-    'pdf': {
-        exports: 'Pdf'
-    }
   }
 });
 

@@ -132,6 +132,5 @@
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/lib/require/async.js \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/lib/require/text-1.0.6.js \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/lib/require/require.js \
-/home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/lib/pdf/pdf.js \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/css/style.css \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/ant-build/AndroidManifest.xml \
