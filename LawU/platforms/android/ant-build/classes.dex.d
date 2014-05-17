@@ -1,9 +1,26 @@
-/home/gabrycaos/workspace/LawU/platforms/android/ant-build/classes.dex : \
-/home/gabrycaos/workspace/LawU/platforms/android/ant-build/classes/com/gabrycaos/lawu/Lawu.class \
-/home/gabrycaos/workspace/LawU/platforms/android/ant-build/classes/com/gabrycaos/lawu/R$drawable.class \
-/home/gabrycaos/workspace/LawU/platforms/android/ant-build/classes/com/gabrycaos/lawu/R$attr.class \
-/home/gabrycaos/workspace/LawU/platforms/android/ant-build/classes/com/gabrycaos/lawu/R.class \
-/home/gabrycaos/workspace/LawU/platforms/android/ant-build/classes/com/gabrycaos/lawu/R$string.class \
-/home/gabrycaos/workspace/LawU/platforms/android/ant-build/classes/com/gabrycaos/lawu/R$xml.class \
-/home/gabrycaos/workspace/LawU/platforms/android/ant-build/classes/com/gabrycaos/lawu/BuildConfig.class \
-/home/gabrycaos/workspace/LawU/platforms/android/ant-build/dexedLibs/classes-c02faed42b9783c0141dea2ea630c85f.jar \
+/home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/ant-build/classes.dex : \
+/home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/ant-build/classes/com/anz/pdfviewer/PdfViewerPlugin.class \
+/home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/ant-build/classes/com/anz/pdfviewer/PdfHandler$1.class \
+/home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/ant-build/classes/com/anz/pdfviewer/PdfHandler.class \
+/home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/ant-build/classes/com/gabrycaos/lawu/R$drawable.class \
+/home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/ant-build/classes/com/gabrycaos/lawu/R$attr.class \
+/home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/ant-build/classes/com/gabrycaos/lawu/R.class \
+/home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/ant-build/classes/com/gabrycaos/lawu/R$string.class \
+/home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/ant-build/classes/com/gabrycaos/lawu/R$xml.class \
+/home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/ant-build/classes/com/gabrycaos/lawu/BuildConfig.class \
+/home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/ant-build/classes/com/gabrycaos/lawu/LawU.class \
+/home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$InAppBrowserClient.class \
+/home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppChromeClient.class \
+/home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$4$1.class \
+/home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$3.class \
+/home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$2.class \
+/home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$1.class \
+/home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser.class \
+/home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$5.class \
+/home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$5$1.class \
+/home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$4.class \
+/home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$5$4.class \
+/home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$5$3.class \
+/home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowserDialog.class \
+/home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/ant-build/classes/org/apache/cordova/inappbrowser/InAppBrowser$5$2.class \
+/home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/ant-build/dexedLibs/classes-e59019437fd9cf78e614d932a01366f0.jar \

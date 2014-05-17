@@ -3,11 +3,8 @@ define(["jquery", "underscore", "backbone"],
     var Cat = Backbone.Model.extend({
       defaults: {
       	title: undefined,
-      	figure: undefined
+      	url: undefined
       }
-
       });
-
     return Cat;
-
   });

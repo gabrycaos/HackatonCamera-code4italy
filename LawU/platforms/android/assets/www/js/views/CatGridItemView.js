@@ -24,7 +24,7 @@ define(["jquery", "underscore", "backbone", "handlebars", "text!templates/cat-gr
         },
 
         goToDetails: function () {
-          Backbone.history.navigate("themelist", {trigger: true});
+          Backbone.history.navigate("cats1/" + this.model.cid, {trigger: true});
         }
       });
 

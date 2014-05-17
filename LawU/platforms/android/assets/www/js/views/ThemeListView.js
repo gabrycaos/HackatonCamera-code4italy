@@ -13,12 +13,7 @@ define(["jquery", "underscore", "backbone", "handlebars", "views/ThemeListItemVi
         },
 
         render: function (eventName) {
-          $(this.el).empty();
-          _.each(this.model.models, function (theme) {
-            $(this.el).append(new ThemeListItemView({
-              model: theme
-            }).render().el);
-          }, this);
+          $(this.el).html(this.template(this.model.toJSON()));
           return this;
         }
       });
