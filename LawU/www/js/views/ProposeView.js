@@ -6,10 +6,17 @@ define(["jquery", "underscore", "backbone", "handlebars", "text!templates/propos
         tagName: "a",
 
         events: {
-          "themePropose": "themePropose",
-          "pointPropose": "pointPropose"
+          "submitbutton": "submit"
         },
 
+        submit: function () {
+          var title = $('#title').val();
+          alert(title);
+          var description = $('#description').val();
+          alert(description);
+         // Backbone.history.navigate("propose", {trigger: true});
+        },
+        
         template: Handlebars.compile(template),
 
         initialize: function () {
@@ -22,14 +29,6 @@ define(["jquery", "underscore", "backbone", "handlebars", "text!templates/propos
           $(this.el).html(this.template(propose));
           return this;
         },
-
-        themePropose: function () {
-          Backbone.history.navigate("propose", {trigger: true});
-        },
-
-        pointPropose: function () {
-          Backbone.history.navigate("themelist", {trigger: true});
-        }    
 
       });
 

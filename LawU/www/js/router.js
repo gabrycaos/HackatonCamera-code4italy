@@ -1,5 +1,5 @@
-define(["jquery", "underscore", "backbone", "collections/LawCollection", "models/Law", "views/LawView", "views/LawListView", "collections/ThemeCollection", "models/Theme", "views/ThemeView", "views/ThemeListView", "collections/PointCollection", "models/Point", "views/PointView", "views/PointListView", "collections/CatCollection", "models/Cat", "views/CatGridView", "views/CatGridSelView", "models/Propose", "views/ProposeView", "views/CatView"],
-    function ($, _, Backbone, LawCollection, Law, LawView, LawListView, ThemeCollection, Theme, ThemeView, ThemeListView, PointCollection, Point, PointView, PointListView, CatCollection, Cat, CatGridView, CatGridSelView, Propose, ProposeView, CatView) {
+define(["jquery", "underscore", "backbone", "collections/LawCollection", "models/Law", "views/LawView", "views/LawListView", "collections/ThemeCollection", "models/Theme", "views/ThemeView", "views/ThemeListView", "collections/PointCollection", "models/Point", "views/PointView", "views/PointListView", "collections/CatCollection", "models/Cat", "views/CatGridView", "models/Propose", "views/ProposeView", "views/CatView"],
+    function ($, _, Backbone, LawCollection, Law, LawView, LawListView, ThemeCollection, Theme, ThemeView, ThemeListView, PointCollection, Point, PointView, PointListView, CatCollection, Cat, CatGridView, Propose, ProposeView, CatView) {
 
     var AppRouter = Backbone.Router.extend({
 
@@ -12,7 +12,6 @@ define(["jquery", "underscore", "backbone", "collections/LawCollection", "models
         "pointlist": "pointlist",
         "points/:id": "pointDetails",
         "cats1/:id": "catDetails",
-        "catgridsel": "catgridsel",
         "catgrid": "catgrid",
         "propose": "propose"
       },
@@ -115,14 +114,6 @@ define(["jquery", "underscore", "backbone", "collections/LawCollection", "models
         });
         this.changePage(page);
       },
-
-      catgridsel: function () {
-        var page = new CatGridSelView({
-          model: this.cats2
-        });
-        this.changePage(page);
-      },
-
       lawDetails: function (id) {
         var law = this.laws.get(id);
         this.changePage(new LawView({

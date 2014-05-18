@@ -75,12 +75,10 @@
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/js/views/ProposeView.js \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/js/views/LawListView.js \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/js/views/CatGridItemView.js \
-/home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/js/views/CatGridSelView.js \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/js/views/LawView.js \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/js/views/LawListItemView.js \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/js/views/PointView.js \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/js/views/PointListView.js \
-/home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/js/views/CatGridSelItemView.js \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/js/views/ThemeListView.js \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/res/screen \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/res/icon \
@@ -122,7 +120,6 @@
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/lib/underscore \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/lib/backbone \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/lib/require \
-/home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/lib/pdf \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/lib/cordova/cordova-2.6.0.js \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/lib/handlebars/helpers.js \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/lib/handlebars/handlebars.js \
