@@ -13,11 +13,11 @@ window.onload = function() {
     context.strokeStyle = "#000000";
     context.lineCap = 'round';
     context.lineJoin = 'round';
-    context.lineWidth = 5;
+    context.lineWidth = 3;
 
     function clear() {
         context.fillStyle = "#ffffff";
-        context.rect(0, 0, 450, 800);
+        context.rect(0, 0, 900, 1600);
         context.fill();
     }
 

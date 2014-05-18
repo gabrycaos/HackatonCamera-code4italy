@@ -19,7 +19,10 @@ define(["jquery", "underscore", "backbone", "handlebars", "text!templates/propos
         
         template: Handlebars.compile(template),
 
-        
+        initialize: function () {
+          this.model.bind("change", this.render, this);
+          this.model.bind("destroy", this.close, this);
+        },
 
         render: function (eventName) {
           var propose = this.model.toJSON();

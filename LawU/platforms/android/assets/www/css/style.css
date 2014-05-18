@@ -97,7 +97,10 @@ ul li a {
 #cazzafa{
     clear: both;
 }
-
+#headContainer{
+    width: 100%;
+    overflow-x:hidden;
+}
 #headerbar{
     /*background-image: -webkit-gradient(top, #cb2027, #991b1e);*/
     background: #cb2027; /* Old browsers */
@@ -227,6 +230,5 @@ h5 {
     border: 1px solid #dedede;
 }
 #main{
-    width: 100%;
-    height: 100%;
+overflow: hidden;
 }
