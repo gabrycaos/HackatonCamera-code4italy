@@ -3,23 +3,37 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/login.htm
 
     var LawListView = Parse.View.extend({
 
-      tagName: "ul",
-      id: "list",
+      tagName: "div",
+      id: "login",
+
+      events: {
+          "touchend #submit": "login",
+          "touchend #signup": "signup"
+        },
 
       template: Handlebars.compile(template),
 
-      initialize: function() {
-        this.model.bind("reset", this.render, this);
+      login: function(){
+      var username = this.$("#login-username").val();
+      var password = this.$("#login-password").val();
+            Parse.User.logIn(username, password, {
+        success: function(user) {
+          Parse.history.navigate("lawlist", {trigger: true})
+        },
+
+        error: function(user, error) {
+         alert("wrong username or invalid password");
+        }
+      });
+      },
+
+      signup: function(){
+        Parse.history.navigate("signup", {trigger: true})
       },
 
       render: function(eventName) {
-        $(this.el).empty();
-        _.each(this.model.models, function(law) {
-          $(this.el).append(new LawListItemView({
-            model: law
-          }).render().el);
-        }, this);
-        return this;
+          $(this.el).html(this.template());
+          return this;
       }
     });
 

@@ -1,11 +1,13 @@
-define(["jquery", "underscore", "parse", "collections/LawCollection", "models/Law", "views/LawView", "views/LawListView", "collections/CatCollection", "models/Cat", "views/CatGridView", "models/Propose", "views/ProposeView", "views/CatView"],
-    function ($, _, Parse, LawCollection, Law, LawView, LawListView, CatCollection, Cat, CatGridView, Propose, ProposeView, CatView) {
+define(["jquery", "underscore", "parse", "collections/LawCollection", "models/Law", "views/LogInView", "views/SignUpView", "views/LawView", "views/LawListView", "collections/CatCollection", "models/Cat", "views/CatGridView", "models/Propose", "views/ProposeView", "views/CatView"],
+    function ($, _, Parse, LawCollection, Law, LogInView, SignUpView, LawView, LawListView, CatCollection, Cat, CatGridView, Propose, ProposeView, CatView) {
 
     var AppRouter = Parse.Router.extend({
 
       routes: {
-        "": "lawlist",
+        "": "login",
+        "loginUser": "login",
         "lawlist": "lawlist",
+        "signup": "signup",
         "laws/:id": "lawDetails",
         "cats1/:id": "catDetails",
         "catgrid": "catgrid",
@@ -14,38 +16,32 @@ define(["jquery", "underscore", "parse", "collections/LawCollection", "models/La
 
       initialize: function () {
         this.currentView = undefined;
-/*
-
-        var law1 = new Law({
-          title: "Legge di iniziativa popolare 1",
-          theme: "Tema A",
-          description: "Breve descrizione della legge in oggetto.......................",
-          votes: "1000"
-        });
-        var law2 = new Law({
-          title: "Legge di iniziativa popolare 2",
-          theme: "Tema B",
-          description: "Breve descrizione della legge in oggetto.......................",
-          votes: "5000"
-        });
-        law1.save();
-        law2.save()*/
         this.laws = new LawCollection([]); //law1, law2
         this.laws.query = new Parse.Query(Law);
-        
         this.cats1 = new CatCollection([]);
         this.propose = new Propose();
         this.getData(this.cats1);     
         this.fetchLaw(this.laws);  
       },
-      
+
+      login: function (){
+        $('#navi').hide();
+        var page = new LogInView({
+        });
+        this.changePage(page);
+      },
+
+      signup: function (){
+        $('#navi').hide();
+        var page = new SignUpView({
+        });
+        this.changePage(page);
+      },
       fetchLaw: function(laws){
              var queryLaws = new Parse.Query(Law);
              queryLaws.find({
              success: function(results) {
-                 console.log(results)
                    laws.reset(results);
-
              },
              error: function(error) {
              console.log("error"+error.data)
@@ -68,10 +64,8 @@ define(["jquery", "underscore", "parse", "collections/LawCollection", "models/La
                                 pdf: v.pdf.value,
                             });
                           entries.push(entry);
-                          console.log(entry.get("pdf"));
                         });
                         container.reset(entries);
-                        console.log(entries);
                     },
                     error: function(jqXHR, status, error) {
                             alert("Connessione assente");
@@ -80,6 +74,7 @@ define(["jquery", "underscore", "parse", "collections/LawCollection", "models/La
           },
 
       lawlist: function () {
+        $('#navi').show();
         var page = new LawListView({
           model: this.laws
         });

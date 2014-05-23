@@ -64,8 +64,10 @@
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/js/collections/LawCollection.js \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/js/collections/CatCollection.js \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/js/views/CatView.js \
+/home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/js/views/SignUpView.js \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/js/views/CatGridView.js \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/js/views/ProposeView.js \
+/home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/js/views/LogInView.js \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/js/views/LawListView.js \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/js/views/CatGridItemView.js \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/js/views/LawView.js \
@@ -99,8 +101,10 @@
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/templates/cat-grid.html \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/templates/theme-list.html \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/templates/cat-grid-sel.html \
+/home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/templates/login.html \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/templates/point-list-item.html \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/templates/point-details.html \
+/home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/templates/signup.html \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/templates/propose.html \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/templates/theme-details.html \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/templates/draw.html \
