@@ -1,7 +1,7 @@
-define(["jquery", "underscore", "backbone", "handlebars", "views/CatGridItemView", "text!templates/cat-grid.html"],
-    function ($, _, Backbone, Handlebars, CatGridItemView, template) {
+define(["jquery", "underscore", "parse", "handlebars", "views/CatGridItemView", "text!templates/cat-grid.html"],
+    function ($, _, Parse, Handlebars, CatGridItemView, template) {
 
-    var CatGridView = Backbone.View.extend({
+    var CatGridView = Parse.View.extend({
 
         tagName: "div",
         id: "grid",

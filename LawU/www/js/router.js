@@ -1,7 +1,7 @@
-define(["jquery", "underscore", "backbone", "collections/LawCollection", "models/Law", "views/LawView", "views/LawListView", "collections/CatCollection", "models/Cat", "views/CatGridView", "models/Propose", "views/ProposeView", "views/CatView"],
-    function ($, _, Backbone, LawCollection, Law, LawView, LawListView, CatCollection, Cat, CatGridView, Propose, ProposeView, CatView) {
+define(["jquery", "underscore", "parse", "collections/LawCollection", "models/Law", "views/LawView", "views/LawListView", "collections/CatCollection", "models/Cat", "views/CatGridView", "models/Propose", "views/ProposeView", "views/CatView"],
+    function ($, _, Parse, LawCollection, Law, LawView, LawListView, CatCollection, Cat, CatGridView, Propose, ProposeView, CatView) {
 
-    var AppRouter = Backbone.Router.extend({
+    var AppRouter = Parse.Router.extend({
 
       routes: {
         "": "lawlist",
@@ -14,7 +14,7 @@ define(["jquery", "underscore", "backbone", "collections/LawCollection", "models
 
       initialize: function () {
         this.currentView = undefined;
-
+/*
 
         var law1 = new Law({
           title: "Legge di iniziativa popolare 1",
@@ -28,11 +28,32 @@ define(["jquery", "underscore", "backbone", "collections/LawCollection", "models
           description: "Breve descrizione della legge in oggetto.......................",
           votes: "5000"
         });
+        law1.save();
+        law2.save()*/
+        this.laws = new LawCollection([]); //law1, law2
+        this.laws.query = new Parse.Query(Law);
+        
         this.cats1 = new CatCollection([]);
-        this.laws = new LawCollection([law1, law2]);
         this.propose = new Propose();
-        this.getData(this.cats1);       
+        this.getData(this.cats1);     
+        this.fetchLaw(this.laws);  
       },
+      
+      fetchLaw: function(laws){
+             var queryLaws = new Parse.Query(Law);
+             queryLaws.find({
+             success: function(results) {
+                 console.log(results)
+                   laws.reset(results);
+
+             },
+             error: function(error) {
+             console.log("error"+error.data)
+             // error is an instance of Parse.Error.
+             }
+             });
+
+        },
        getData: function(container) {
                 var URL = "http://lawu.altervista.org/getData.php";
                 $.ajax({
@@ -71,13 +92,13 @@ define(["jquery", "underscore", "backbone", "collections/LawCollection", "models
         this.changePage(page);
       },
       lawDetails: function (id) {
-        var law = this.laws.get(id);
+        var law = this.laws.getByCid(id);
         this.changePage(new LawView({
           model: law
         }));
       },
         catDetails: function (id) {
-        var cat = this.cats1.get(id);
+        var cat = this.cats1.getByCid(id);
         this.changePage(new CatView({
           model: cat
         }));

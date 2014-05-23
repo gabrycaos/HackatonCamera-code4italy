@@ -1,13 +1,12 @@
-define(["jquery", "underscore", "backbone"],
-  function ($, _, Backbone) {
-    var Law = Backbone.Model.extend({
+define(["jquery", "underscore", "parse"],
+  function ($, _, Parse) {
+    var Law = Parse.Object.extend( "Law", {
       defaults: {
-      	title: undefined,
-      	theme: undefined,
-      	description: undefined,
+        title: undefined,
+        description: undefined,
         votes: 0
+      
       }
-
       });
 
     return Law;

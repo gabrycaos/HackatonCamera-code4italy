@@ -1,7 +1,7 @@
-define(["jquery", "underscore", "backbone", "handlebars", "text!templates/cat-details.html"],
-    function ($, _, Backbone,  Handlebars, template) {
+define(["jquery", "underscore", "parse", "pdfjs", "handlebars", "text!templates/cat-details.html"],
+    function ($, _, Parse, PDFJS, Handlebars, template) {
 
-    var CatView = Backbone.View.extend({
+    var CatView = Parse.View.extend({
 
                 tagName: "div",
                 id: "pdfCont",
@@ -9,7 +9,6 @@ define(["jquery", "underscore", "backbone", "handlebars", "text!templates/cat-de
         events: {
           "touchend #submitbutton": "submit"
         },
-
         submit: function () {
           var comm = $('#description').val();
           $('#description').val("");
@@ -19,6 +18,8 @@ define(["jquery", "underscore", "backbone", "handlebars", "text!templates/cat-de
         template: Handlebars.compile(template),
 
         render: function (eventName) {
+          var pdf = this.model.get('url');
+          console.log(pdf);
           $(this.el).html(this.template(this.model.toJSON()));
           return this;
         }

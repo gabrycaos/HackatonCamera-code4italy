@@ -19,7 +19,8 @@ module.exports.metadata =
 // TOP OF METADATA
 {
     "org.apache.cordova.inappbrowser": "0.4.1-dev",
-    "com.anz.pdfviewer": "0.2.3"
+    "com.anz.pdfviewer": "0.2.3",
+    "org.apache.cordova.console": "0.2.9-dev"
 }
 // BOTTOM OF METADATA
 });

@@ -1,7 +1,7 @@
-define(["jquery", "underscore", "backbone", "handlebars", "views/LawListItemView", "text!templates/law-list.html"],
-    function ($, _, Backbone, Handlebars, LawListItemView, template) {
+define(["jquery", "underscore", "parse", "handlebars", "views/LawListItemView", "text!templates/law-list.html"],
+    function ($, _, Parse, Handlebars, LawListItemView, template) {
 
-    var LawListView = Backbone.View.extend({
+    var LawListView = Parse.View.extend({
 
         tagName: "ul",
         id: "list",

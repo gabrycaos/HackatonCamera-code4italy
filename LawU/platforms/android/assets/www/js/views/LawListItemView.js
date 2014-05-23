@@ -1,7 +1,7 @@
-define(["jquery", "underscore", "backbone", "handlebars", "text!templates/law-list-item.html"],
-    function ($, _, Backbone, Handlebars, template) {
+define(["jquery", "underscore", "parse", "handlebars", "text!templates/law-list-item.html"],
+    function ($, _, Parse, Handlebars, template) {
 
-    var LawListItemView = Backbone.View.extend({
+    var LawListItemView = Parse.View.extend({
 
         tagName: "li",
 
@@ -11,11 +11,11 @@ define(["jquery", "underscore", "backbone", "handlebars", "text!templates/law-li
 
         template: Handlebars.compile(template),
 
-        initialize: function () {
+   /*     initialize: function () {
           this.model.bind("change", this.render, this);
           this.model.bind("destroy", this.close, this);
         },
-
+*/
         render: function (eventName) {
           var law = this.model.toJSON();
           law.cid = this.model.cid;
@@ -24,7 +24,7 @@ define(["jquery", "underscore", "backbone", "handlebars", "text!templates/law-li
         },
 
         goToDetails: function () {
-          Backbone.history.navigate("laws/" + this.model.cid, {trigger: true});
+          Parse.history.navigate("laws/" + this.model.cid, {trigger: true});
         }
       });
 

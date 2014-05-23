@@ -1,7 +1,7 @@
-define(["jquery", "underscore", "backbone"],
-  function ($, _, Backbone) {
-    var Propose = Backbone.Model.extend({
-      defaults: {
+define(["jquery", "underscore", "parse"],
+  function ($, _, Parse) {
+    var Propose = Parse.Object.extend("Propose", {
+      defaults: { 
                 title: undefined
       }
 

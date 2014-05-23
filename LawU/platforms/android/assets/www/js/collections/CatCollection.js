@@ -1,7 +1,7 @@
-define(["jquery", "underscore", "backbone", "models/Cat"],
-    function ($, _, Backbone, Cat) {
+define(["jquery", "underscore", "parse", "models/Cat"],
+    function ($, _, Parse, Cat) {
 
-    var CatCollection = Backbone.Collection.extend({
+    var CatCollection = Parse.Collection.extend({
         model: Cat
       });
 

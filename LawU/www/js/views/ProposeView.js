@@ -1,7 +1,7 @@
-define(["jquery", "underscore", "backbone", "handlebars", "text!templates/propose.html"],
-    function ($, _, Backbone, Handlebars, template) {
+define(["jquery", "underscore", "parse", "handlebars", "text!templates/propose.html"],
+    function ($, _, Parse, Handlebars, template) {
 
-    var ProposeView = Backbone.View.extend({
+    var ProposeView = Parse.View.extend({
 
         tagName: "a",
 

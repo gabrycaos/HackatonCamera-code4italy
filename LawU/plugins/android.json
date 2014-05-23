@@ -27,6 +27,9 @@
         },
         "com.anz.pdfviewer": {
             "PACKAGE_NAME": "com.gabrycaos.lawu"
+        },
+        "org.apache.cordova.console": {
+            "PACKAGE_NAME": "com.gabrycaos.lawu"
         }
     },
     "dependent_plugins": {}

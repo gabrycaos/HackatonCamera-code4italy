@@ -1,7 +1,7 @@
-define(["jquery", "underscore", "backbone", "handlebars", "text!templates/cat-grid-item.html"],
-    function ($, _, Backbone, Handlebars, template) {
+define(["jquery", "underscore", "parse", "handlebars", "text!templates/cat-grid-item.html"],
+    function ($, _, Parse, Handlebars, template) {
 
-    var CatGridSelItemView = Backbone.View.extend({
+    var CatGridSelItemView = Parse.View.extend({
 
         tagName: "a",
 
@@ -24,7 +24,7 @@ define(["jquery", "underscore", "backbone", "handlebars", "text!templates/cat-gr
         },
 
         goToDetails: function () {
-          Backbone.history.navigate("cats1/" + this.model.cid, {trigger: true});
+          Parse.history.navigate("cats1/" + this.model.cid, {trigger: true});
         }
       });
 

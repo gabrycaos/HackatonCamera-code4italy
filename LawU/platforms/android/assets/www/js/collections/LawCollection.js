@@ -1,7 +1,7 @@
-define(["jquery", "underscore", "backbone", "models/Law"],
-    function ($, _, Backbone, Law) {
+define(["jquery", "underscore", "parse", "models/Law"],
+    function ($, _, Parse, Law) {
 
-    var LawCollection = Backbone.Collection.extend({
+    var LawCollection = Parse.Collection.extend({
         model: Law
       });
 

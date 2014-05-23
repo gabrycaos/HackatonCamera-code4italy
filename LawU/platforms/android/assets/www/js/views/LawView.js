@@ -1,7 +1,7 @@
-define(["jquery", "underscore", "backbone", "handlebars", "text!templates/law-details.html"],
-    function ($, _, Backbone, Handlebars, template) {
+define(["jquery", "underscore", "parse", "handlebars", "text!templates/law-details.html"],
+    function ($, _, Parse, Handlebars, template) {
 
-    var LawView = Backbone.View.extend({
+    var LawView = Parse.View.extend({
 
         events: {
           "touchend #lawubtn": "vote"

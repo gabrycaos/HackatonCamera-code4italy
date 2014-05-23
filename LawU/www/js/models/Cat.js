@@ -1,9 +1,9 @@
-define(["jquery", "underscore", "backbone"],
-  function ($, _, Backbone) {
-    var Cat = Backbone.Model.extend({
+define(["jquery", "underscore", "parse"],
+  function ($, _, Parse) {
+    var Cat = Parse.Object.extend( "Cat",	{
       defaults: {
       	title: undefined,
-      	url: undefined
+      	pdf: undefined
       }
       });
     return Cat;
