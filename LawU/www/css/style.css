@@ -232,3 +232,17 @@ h5 {
 #main{
 overflow: hidden;
 }
+#pdfCont{
+    display: block;
+    position: relative;
+}
+#pdfCont>iframe{
+    height: 50%;
+}
+#commentContainer{
+    position: fixed;
+    margin-top: 90%;
+    display: block;
+    bottom: 0;
+    overflow-y: scroll;
+    }

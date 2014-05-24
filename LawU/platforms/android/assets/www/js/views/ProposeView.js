@@ -1,20 +1,25 @@
-define(["jquery", "underscore", "parse", "handlebars", "text!templates/propose.html"],
-    function ($, _, Parse, Handlebars, template) {
+define(["jquery", "underscore", "parse", "handlebars","models/Law", "text!templates/propose.html"],
+    function ($, _, Parse, Handlebars, Law, template) {
 
     var ProposeView = Parse.View.extend({
 
-        tagName: "a",
+        
+      tagName: "div",
+      id: "themePropose",
 
         events: {
-          "submitbutton": "submit"
+          "touchend #submitbutton": "submit"
         },
 
         submit: function () {
           var title = $('#title').val();
-          alert(title);
           var description = $('#description').val();
-          alert(description);
-         // Backbone.history.navigate("propose", {trigger: true});
+          var law = new Law({
+            title: title,
+            description: description,
+          });
+          law.save();
+          Parse.history.navigate("lawlist", {trigger: true});
         },
         
         template: Handlebars.compile(template),
