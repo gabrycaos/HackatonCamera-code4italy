@@ -30,9 +30,7 @@ define(["jquery", "underscore", "parse", "pdfjs", "handlebars", "collections/Com
 
       fetchComm: function(comments) {
         var rif = this.model.get('pdf');
-        console.log(rif);
         var queryComm = new Parse.Query(Comment);
-       // queryComm.include("riferitoA");
         queryComm.equalTo("riferitoA", rif);
         queryComm.find({
           success: function(results) {

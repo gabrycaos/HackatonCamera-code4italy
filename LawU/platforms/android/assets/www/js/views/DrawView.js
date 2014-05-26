@@ -78,6 +78,11 @@ define(["jquery", "underscore", "parse", "handlebars", "models/Sign", "text!temp
                 context.fill();
             },
             saveImage: function() {
+                var vot = this.model.get("votes")+1;
+                console.log(vot);
+                this.model.set({"votes": vot});
+                this.model.save();
+                console.log(this.model.get("votes"));
                 var title = this.model.get("title");
                 var img = canvas.toDataURL("image/png");
                 var imageTitle = this.model.get("title") + "-" + Parse.User.current().getUsername() + ".png";

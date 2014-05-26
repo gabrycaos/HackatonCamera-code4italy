@@ -5,7 +5,6 @@ define(["jquery", "underscore", "parse"],
         title: undefined,
         description: undefined,
         votes: 0
-      
       }
       });
 
