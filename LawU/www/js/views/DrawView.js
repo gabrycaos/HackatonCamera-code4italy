@@ -1,82 +1,81 @@
 define(["jquery", "underscore", "parse", "handlebars", "text!templates/draw.html"],
     function($, _, Parse, Handlebars, template) {
 
-var canvas;
-var context;
-var radius = 2;
-var dragging = false;
-var targetTouch;
-var rect;
+            var canvas;
+            var context;
+            var radius = 2;
+            var dragging = false;
+            var targetTouch;
+            var rect;
 
-var DrawView = Parse.View.extend({
+        var DrawView = Parse.View.extend({
 
-  events: {
-    "touchstart #main": "engage",
-    "touchmove #main": "putPoint",
-    "touchend #main": "disengage"
-  },
 
-  //Compile and assign the template
-  template: getTemplate("signature"),
+            events: {
+                "touchstart #main": "engage",
+                "touchmove #main": "putPoint",
+                "touchend #main": "disengage"
+            },
 
-  initialize: function () {
-  },
+            template: Handlebars.compile(template),
 
-  //Render the contents
-  render: function(eventName) {
-    alert("rendered");
-    $(this.el).html(this.template(this.model.toJSON()));
-    this.delegateEvents();
-    var that = this;
-    setTimeout(function() {
-      that.prepSignPad();
-    }, 0);
-    return this;
-  },
+            initialize: function() {
+            this.render();
+            alert("initialize!");
+            },
 
-  prepSignPad: function() {
-    canvas = document.getElementById("SignCanvas");
-    context = canvas.getContext("2d");
-    context.lineWidth = radius * 2;
-  },
+            //Render the contents
+            render: function() {
+                alert("O");
+                this.$el.html(this.template(this.model.toJSON()));
+                this.delegateEvents();
+                var that = this;
+                setTimeout(function() {
+                    that.prepSignPad()
+                }, 0);
+                return this;
+            },
 
-  updateStatus: function() {
-    this.$("#divStatusbar").html("Canvas Loaded");
-  },
+            prepSignPad: function() {
+                canvas = document.getElementById("main");
+                context = canvas.getContext("2d");
+                context.lineWidth = radius * 2;
+            },
 
-  putPoint: function(e) {
-    e.preventDefault();
-    targetTouch = e.originalEvent.targetTouches[0];
+         /*   updateStatus: function() {
+                this.$("#divStatusbar").html("Canvas Loaded");
+            },*/
 
-    rect = canvas.getBoundingClientRect();
+            putPoint: function(e) {
+                e.preventDefault();
+                targetTouch = e.originalEvent.targetTouches[0];
 
-    var x = targetTouch.pageX - rect.left;
-    var y = targetTouch.pageY - rect.top;
+                rect = canvas.getBoundingClientRect();
 
-    if(dragging) {
-      context.lineTo(x, y);
-      context.stroke();
-      context.fillStyle = "black";
-      context.beginPath();
+                var x = targetTouch.pageX - rect.left;
+                var y = targetTouch.pageY - rect.top;
 
-      context.arc(x, y, radius, 0, Math.PI * 2);
-      context.fill();
-      context.beginPath();
-      context.moveTo(x, y);
-    }
-  },
+                if (dragging) {
+                    context.lineTo(x, y);
+                    context.stroke();
+                    context.fillStyle = "black";
+                    context.beginPath();
+                    context.arc(x, y, radius, 0, Math.PI * 2);
+                    context.fill();
+                    context.beginPath();
+                    context.moveTo(x, y);
+                }
+            },
 
-  engage: function(e) {
-    alert("tap!");
-    dragging = true;
-    putPoint(e);
-  },
+            engage: function(e) {
+                dragging = true;
+                this.putPoint(e);
+            },
 
-  disengage: function() {
-    dragging = false;
-    context.beginPath();
-  }
-
-});
-return DrawView;
-});
+            disengage: function() {
+                dragging = false;
+                context.beginPath();
+            }
+        });
+        return DrawView;
+    });

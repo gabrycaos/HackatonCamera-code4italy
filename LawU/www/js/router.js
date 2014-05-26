@@ -1,5 +1,5 @@
-define(["jquery", "underscore", "parse", "collections/LawCollection", "collections/CommentCollection", "models/Law", "models/Comment", "views/LogInView", "views/SignUpView", "views/LawView", "views/LawListView", "collections/CatCollection", "models/Cat", "views/CatGridView", "models/Propose", "views/ProposeView", "views/CatView"],
-  function($, _, Parse, LawCollection, CommentCollection, Law, Comment, LogInView, SignUpView, LawView, LawListView, CatCollection, Cat, CatGridView, Propose, ProposeView, CatView) {
+define(["jquery", "underscore", "parse", "collections/LawCollection", "collections/CommentCollection", "models/Law", "models/Comment", "views/LogInView", "views/SignUpView", "views/LawView", "views/LawListView", "collections/CatCollection", "models/Cat", "views/CatGridView", "models/Propose", "views/ProposeView", "views/CatView", "views/DrawView"],
+  function($, _, Parse, LawCollection, CommentCollection, Law, Comment, LogInView, SignUpView, LawView, LawListView, CatCollection, Cat, CatGridView, Propose, ProposeView, CatView, DrawView) {
 
     var AppRouter = Parse.Router.extend({
 
@@ -9,7 +9,7 @@ define(["jquery", "underscore", "parse", "collections/LawCollection", "collectio
         "lawlist": "lawlist",
         "signup": "signup",
         "laws/:id": "lawDetails",
-       // "sign/:id": "draw",
+        "sign/:id": "draw",
         "cats1/:id": "catDetails",
         "catgrid": "catgrid",
         "propose": "propose"
@@ -103,12 +103,12 @@ define(["jquery", "underscore", "parse", "collections/LawCollection", "collectio
           model: law
         }));
       },
-  /*    draw: function(id) {
+      draw: function(id) {
         var law = this.laws.getByCid(id);
         this.changePage(new DrawView({
           model: law
         }));
-      },*/
+      },
       catDetails: function(id) {
         var cat = this.cats1.getByCid(id);
         this.changePage(new CatView({
