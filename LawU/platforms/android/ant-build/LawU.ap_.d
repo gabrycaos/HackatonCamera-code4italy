@@ -62,6 +62,7 @@
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/js/models/Comment.js \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/js/models/Law.js \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/js/models/Propose.js \
+/home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/js/models/DrawBox.js \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/js/collections/LawCollection.js \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/js/collections/CommentCollection.js \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/js/collections/CatCollection.js \
