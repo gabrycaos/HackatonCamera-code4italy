@@ -1,12 +1,12 @@
-define(["jquery", "underscore", "parse", "handlebars", "text!templates/draw.html"],
-    function($, _, Parse, Handlebars, template) {
+define(["jquery", "underscore", "parse", "handlebars", "models/Sign", "text!templates/draw.html"],
+    function($, _, Parse, Handlebars, Sign, template) {
 
-            var canvas;
-            var context;
-            var radius = 2;
-            var dragging = false;
-            var targetTouch;
-            var rect;
+        var canvas;
+        var context;
+        var radius = 2;
+        var dragging = false;
+        var targetTouch;
+        var rect;
 
         var DrawView = Parse.View.extend({
 
@@ -14,19 +14,17 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/draw.html
             events: {
                 "touchstart #main": "engage",
                 "touchmove #main": "putPoint",
-                "touchend #main": "disengage"
+                "touchend #main": "disengage",
+                "touchend #clear": "clear",
+                "touchend #lawubtn": "saveImage"
             },
 
             template: Handlebars.compile(template),
 
-            initialize: function() {
-            this.render();
-            alert("initialize!");
-            },
+            initialize: function() {},
 
             //Render the contents
             render: function() {
-                alert("O");
                 this.$el.html(this.template(this.model.toJSON()));
                 this.delegateEvents();
                 var that = this;
@@ -38,13 +36,11 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/draw.html
 
             prepSignPad: function() {
                 canvas = document.getElementById("main");
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
                 context = canvas.getContext("2d");
                 context.lineWidth = radius * 2;
             },
-
-         /*   updateStatus: function() {
-                this.$("#divStatusbar").html("Canvas Loaded");
-            },*/
 
             putPoint: function(e) {
                 e.preventDefault();
@@ -75,6 +71,30 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/draw.html
             disengage: function() {
                 dragging = false;
                 context.beginPath();
+            },
+            clear: function() {
+                context.fillStyle = "#ffffff";
+                context.rect(0, 0, window.innerWidth, window.innerHeight);
+                context.fill();
+            },
+            saveImage: function() {
+                var title = this.model.get("title");
+                var img = canvas.toDataURL("image/png");
+                var imageTitle = this.model.get("title") + "-" + Parse.User.current().getUsername() + ".png";
+                // var file = new File(img, imageTitle);
+                var parseFile = new Parse.File(imageTitle, {
+                    "base64": img
+                });
+                parseFile.save();
+                var sign = new Sign({
+                    user: Parse.User.current().getUsername(),
+                    riferitoA: this.model.get("title"),
+                    file: parseFile
+                });
+                sign.save();
+                Parse.history.navigate("lawlist", {
+                    trigger: true
+                });
             }
         });
         return DrawView;
