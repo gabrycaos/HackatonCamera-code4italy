@@ -8,7 +8,7 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/law-detai
         },
 
         vote: function () {
-          
+          Parse.history.navigate("sign/" + this.model.cid, {trigger: true});
         },
 
         template: Handlebars.compile(template),

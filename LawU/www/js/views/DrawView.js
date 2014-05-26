@@ -1,79 +1,82 @@
 define(["jquery", "underscore", "parse", "handlebars", "text!templates/draw.html"],
     function($, _, Parse, Handlebars, template) {
 
-        var LawView = Parse.View.extend({
+var canvas;
+var context;
+var radius = 2;
+var dragging = false;
+var targetTouch;
+var rect;
 
+var DrawView = Parse.View.extend({
 
-            tagName: "canvas",
-            id: "pdfCont",
+  events: {
+    "touchstart #main": "engage",
+    "touchmove #main": "putPoint",
+    "touchend #main": "disengage"
+  },
 
-            events: {
-                "touchstart #main": "start",
-                "touchmove #main": "move",
-                "touchend #clear": "clear",
-                "touchend #lawubtn": "vote"
-            },
-            initialize: function() {
-                var canvas = document.getElementById('main');
-                var canvastop = canvas.offsetTop;
-                var context = canvas.getContext("2d");
-                var lastx;
-                var lasty;
-                context.strokeStyle = "#000000";
-                context.lineCap = 'round';
-                context.lineJoin = 'round';
-                context.lineWidth = 3;
-            },
-            vote: function() {
+  //Compile and assign the template
+  template: getTemplate("signature"),
 
-            },
+  initialize: function () {
+  },
 
-            start: function() {
-                event.preventDefault();
-                lastx = event.touches[0].clientX;
-                lasty = event.touches[0].clientY - canvastop;
-                dot(lastx, lasty);
-            },
+  //Render the contents
+  render: function(eventName) {
+    alert("rendered");
+    $(this.el).html(this.template(this.model.toJSON()));
+    this.delegateEvents();
+    var that = this;
+    setTimeout(function() {
+      that.prepSignPad();
+    }, 0);
+    return this;
+  },
 
-            move: function() {
-                event.preventDefault();
-                var newx = event.touches[0].clientX;
-                var newy = event.touches[0].clientY - canvastop;
-                line(lastx, lasty, newx, newy);
-                lastx = newx;
-                lasty = newy;
-            },
+  prepSignPad: function() {
+    canvas = document.getElementById("SignCanvas");
+    context = canvas.getContext("2d");
+    context.lineWidth = radius * 2;
+  },
 
-            line: function(fromx, fromy, tox, toy) {
-                context.beginPath();
-                context.moveTo(fromx, fromy);
-                context.lineTo(tox, toy);
-                context.stroke();
-                context.closePath();
-            },
+  updateStatus: function() {
+    this.$("#divStatusbar").html("Canvas Loaded");
+  },
 
-            dot: function(x, y) {
-                context.beginPath();
-                context.fillStyle = "#000000";
-                context.arc(x, y, 1, 0, Math.PI * 2, true);
-                context.fill();
-                context.stroke();
-                context.closePath();
-            },
+  putPoint: function(e) {
+    e.preventDefault();
+    targetTouch = e.originalEvent.targetTouches[0];
 
-            clear: function() {
-                context.fillStyle = "#ffffff";
-                context.rect(0, 0, 450, 800);
-                context.fill();
-            },
+    rect = canvas.getBoundingClientRect();
 
-            template: Handlebars.compile(template),
+    var x = targetTouch.pageX - rect.left;
+    var y = targetTouch.pageY - rect.top;
 
-            render: function(eventName) {
+    if(dragging) {
+      context.lineTo(x, y);
+      context.stroke();
+      context.fillStyle = "black";
+      context.beginPath();
 
-                $(this.el).html(this.template(this.model.toJSON()));
-                return this;
-            }
-        });
-        return LawView;
-    });
+      context.arc(x, y, radius, 0, Math.PI * 2);
+      context.fill();
+      context.beginPath();
+      context.moveTo(x, y);
+    }
+  },
+
+  engage: function(e) {
+    alert("tap!");
+    dragging = true;
+    putPoint(e);
+  },
+
+  disengage: function() {
+    dragging = false;
+    context.beginPath();
+  }
+
+});
+return DrawView;
+});

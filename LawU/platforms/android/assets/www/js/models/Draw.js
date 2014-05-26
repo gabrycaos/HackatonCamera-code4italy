@@ -2,7 +2,7 @@ window.onload = function() {
 
     document.ontouchmove = function(e){ e.preventDefault(); }
 
-    var canvas = $(this.el);
+    var canvas = document.getElementById('main');
     var canvastop = canvas.offsetTop
 
     var context = canvas.getContext("2d");
@@ -17,7 +17,7 @@ window.onload = function() {
 
     function clear() {
         context.fillStyle = "#ffffff";
-        context.rect(0, 0, 450, 800);
+        context.rect(0, 0, 900, 1600);
         context.fill();
     }
 
@@ -42,13 +42,16 @@ window.onload = function() {
         event.preventDefault();
         lastx = event.touches[0].clientX;
         lasty = event.touches[0].clientY - canvastop;
+
         dot(lastx,lasty);
     }
 
     canvas.ontouchmove = function(event){
         event.preventDefault();
+
         var newx = event.touches[0].clientX;
         var newy = event.touches[0].clientY - canvastop;
+
         line(lastx,lasty, newx,newy);
         lastx = newx;
         lasty = newy;
