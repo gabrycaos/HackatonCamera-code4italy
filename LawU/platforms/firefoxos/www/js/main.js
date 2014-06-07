@@ -6,7 +6,6 @@ require.config({
     text: '../lib/require/text-1.0.6',
     async: '../lib/require/async',
     handlebars: '../lib/handlebars/handlebars',
-    pdfjs: '../lib/pdf/pdf',
     templates: '../templates'
   },
   shim: {
@@ -22,10 +21,7 @@ require.config({
     },
     'handlebars': {
       exports: 'Handlebars'
-    },
-    'pdfjs': {
-      exports: 'PDFJS'
-    },
+    }
   }
 });
 
