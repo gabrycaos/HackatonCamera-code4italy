@@ -1,41 +1,45 @@
-define(["jquery", "underscore", "parse", "handlebars","models/Law", "text!templates/propose.html"],
-    function ($, _, Parse, Handlebars, Law, template) {
+define(["jquery", "underscore", "parse", "handlebars", "models/Law", "text!templates/propose.html"],
+  function($, _, Parse, Handlebars, Law, template) {
 
     var ProposeView = Parse.View.extend({
 
-        
+
       tagName: "div",
       id: "themePropose",
 
-        events: {
-          "touchend #submitbutton": "submit"
-        },
+      events: {
+        "touchend #submitbutton": "submit"
+      },
 
-        submit: function () {
-          var title = $('#title').val();
-          var description = $('#description').val();
-          var law = new Law({
-            title: title,
-            description: description,
-          });
-          law.save();
-          Parse.history.navigate("lawlist", {trigger: true});
-        },
-        
-        template: Handlebars.compile(template),
+      submit: function() {
+        var title = $('#title').val();
+        var description = $('#description').val();
+        var user = Parse.User.current();
+        var law = new Law({
+          title: title,
+          description: description,
+          autore: user.getUsername(),
+        });
+        law.save();
+        Parse.history.navigate("lawlist", {
+          trigger: true
+        });
+      },
 
-        initialize: function () {
-          this.model.bind("change", this.render, this);
-          this.model.bind("destroy", this.close, this);
-        },
+      template: Handlebars.compile(template),
 
-        render: function (eventName) {
-          var propose = this.model.toJSON();
-          $(this.el).html(this.template(propose));
-          return this;
-        },
+      initialize: function() {
+        this.model.bind("change", this.render, this);
+        this.model.bind("destroy", this.close, this);
+      },
 
-      });
+      render: function(eventName) {
+        var propose = this.model.toJSON();
+        $(this.el).html(this.template(propose));
+        return this;
+      },
+
+    });
 
     return ProposeView;
 

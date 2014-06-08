@@ -82,6 +82,7 @@
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/js/views/CommentListItemView.js \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/res/screen \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/res/icon \
+/home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/res/cost04.png \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/res/laws.png \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/res/law_it.png \
 /home/gabrycaos/workspace/HackatonCamera/LawU/platforms/android/assets/www/res/logo.png \

@@ -1,5 +1,5 @@
-define(["jquery", "underscore", "parse", "pdfjs", "handlebars", "collections/CommentCollection", "models/Comment", "views/CommentListView", "text!templates/cat-view.html"],
-  function($, _, Parse, PDFJS, Handlebars, CommentCollection, Comment, CommentListView, template) {
+define(["jquery", "underscore", "parse", "handlebars", "collections/CommentCollection", "models/Comment", "views/CommentListView", "text!templates/cat-view.html"],
+  function($, _, Parse, Handlebars, CommentCollection, Comment, CommentListView, template) {
 
     var CatView = Parse.View.extend({
 

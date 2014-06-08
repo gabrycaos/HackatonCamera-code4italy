@@ -1,12 +1,1 @@
-{
-  "launch_path": "/index.html",
-  "installs_allowed_from": [
-    "*"
-  ],
-  "version": "0.0.1",
-  "name": "LawU",
-  "pkgName": "com.gabrycaos.lawu",
-  "icons": {
-    "128": "/img/logo.png"
-  }
-}
+{"launch_path":"/index.html","installs_allowed_from":["*"],"version":"0.0.1","name":"LawU","pkgName":"com.gabrycaos.lawu"}
