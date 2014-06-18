@@ -1,16 +1,16 @@
-define(["jquery", "underscore", "parse", "collections/LawCollection", "collections/CommentCollection", "models/Law", "models/Comment", "views/LogInView", "views/SignUpView", "views/LawView", "views/LawListView", "collections/CatCollection", "models/Cat", "views/CatGridView", "models/Propose", "views/ProposeView", "views/CatView", "views/DrawView"],
-  function($, _, Parse, LawCollection, CommentCollection, Law, Comment, LogInView, SignUpView, LawView, LawListView, CatCollection, Cat, CatGridView, Propose, ProposeView, CatView, DrawView) {
+define(["jquery", "underscore", "parse", "collections/LawCollection", "collections/CommentCollection", "models/Law", "models/Comment", "views/LogInView", "views/SignUpView", "views/LawView", "views/LawListView", "collections/CatCollection", "models/Cat", "views/CatGridView", "models/Propose", "views/ProposeView", "views/CatView", "views/DrawView", "views/StructureView"],
+  function($, _, Parse, LawCollection, CommentCollection, Law, Comment, LogInView, SignUpView, LawView, LawListView, CatCollection, Cat, CatGridView, Propose, ProposeView, CatView, DrawView, StructureView) {
 
     var AppRouter = Parse.Router.extend({
 
       routes: {
-        "": "login",
+        "": "structure",
         "loginUser": "login",
-        "lawlist": "lawlist",
         "signup": "signup",
         "laws/:id": "lawDetails",
         "sign/:id": "draw",
         "cats1/:id": "catDetails",
+        "lawlist": "lawlist",
         "catgrid": "catgrid",
         "propose": "propose"
       },
@@ -26,6 +26,16 @@ define(["jquery", "underscore", "parse", "collections/LawCollection", "collectio
         this.fetchLaw(this.laws);
         this.fetchComm(this.comments);
       },
+
+        structure: function() {
+            if (!this.structureView) {
+                this.structureView = new StructureView();
+                this.structureView.render();
+                this.contents = this.structureView.$el.find("#content #contents");
+            }
+            this.login();
+        },
+
       login: function() {
         $('#navi').hide();
         var page = new LogInView({});
@@ -83,20 +93,7 @@ define(["jquery", "underscore", "parse", "collections/LawCollection", "collectio
           },
         });
       },
-      lawlist: function() {
-        this.fetchLaw(this.laws);
-        $('#navi').show();
-        var page = new LawListView({
-          model: this.laws
-        });
-        this.changePage(page);
-      },
-      catgrid: function() {
-        var page = new CatGridView({
-          model: this.cats1
-        });
-        this.changePage(page);
-      },
+
       lawDetails: function(id) {
         var law = this.laws.getByCid(id);
         this.changePage(new LawView({
@@ -115,20 +112,39 @@ define(["jquery", "underscore", "parse", "collections/LawCollection", "collectio
           model: cat
         }));
       },
-      propose: function() {
-        var page = new ProposeView({
-          model: this.propose
-        });
-        this.changePage(page);
-      },
-      changePage: function(page) {
-        if (this.currentView) {
-          this.currentView.remove();
-        }
 
-        this.currentView = page;
-        page.render();
-        $('body').append($(page.el));
+        lawlist: function() {
+            this.fetchLaw(this.laws);
+            $('#navi').show();
+            var page = new LawListView({
+                model: this.laws
+            });
+            this.changePage(page);
+        },
+
+        catgrid: function() {
+            var page = new CatGridView({
+                model: this.cats1
+            });
+            this.changePage(page);
+        },
+
+        propose: function() {
+            var page = new ProposeView({
+                model: this.propose
+            });
+            this.changePage(page);
+        },
+
+      changePage: function(page) {
+          if (this.currentView) {
+              this.currentView.remove();
+              this.currentView.off();
+          }
+          this.currentView = page;
+          page.render();
+          this.contents.append($(page.el));
+          this.currentView.trigger("inTheDom");
       }
     });
     return AppRouter;

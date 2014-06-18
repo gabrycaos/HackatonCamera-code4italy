@@ -3,7 +3,7 @@ define(["jquery", "underscore", "parse", "handlebars", "text!templates/cat-grid-
 
     var CatGridSelItemView = Parse.View.extend({
 
-        tagName: "a",
+        tagName: "li",
 
         events: {
           "touchend": "goToDetails"

@@ -3,8 +3,8 @@ define(["jquery", "underscore", "parse", "handlebars", "views/CatGridItemView", 
 
     var CatGridView = Parse.View.extend({
 
-        tagName: "div",
-        id: "grid",
+        tagName: "ul",
+        id: "list",
 
         template: Handlebars.compile(template),
 
